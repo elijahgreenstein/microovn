@@ -1,3 +1,4 @@
+import os
 import sys
 
 sys.path.append('./')
@@ -10,6 +11,16 @@ from custom_conf import *
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+############################################################
+### URL configuration
+############################################################
+
+version_slug = f"{os.environ.get('READTHEDOCS_VERSION', 'local')}"
+slug = 'docs/microovn'
+html_baseurl = f"https://ubuntu.com/docs/microovn/{version_slug}/"
+ogp_site_url = f"https://ubuntu.com/docs/microovn/{version_slug}/"
+sitemap_url_scheme = "{link}"
 
 ############################################################
 ### Extensions
@@ -141,7 +152,7 @@ html_css_files = [
 ]
 html_css_files.extend(custom_html_css_files)
 
-html_js_files = ['header-nav.js']
+html_js_files = ['header-nav.js', "js/overwrite_links.js"]
 if 'github_issues' in html_context and html_context['github_issues'] and not disable_feedback_button:
     html_js_files.append('github_issue_links.js')
 html_js_files.extend(custom_html_js_files)
