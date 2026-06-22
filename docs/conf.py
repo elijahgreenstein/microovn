@@ -58,8 +58,8 @@ if not 'discourse_prefix' in html_context and 'discourse' in html_context:
 
 # The default for notfound_urls_prefix usually works, but not for
 # documentation on documentation.ubuntu.com
-if slug:
-    notfound_urls_prefix = '/' + slug + '/en/latest/'
+# if slug:
+#     notfound_urls_prefix = '/' + slug + '/en/latest/'
 
 notfound_context = {
     'title': 'Page not found',
